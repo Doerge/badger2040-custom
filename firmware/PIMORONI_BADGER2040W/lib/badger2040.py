@@ -230,17 +230,18 @@ class Badger2040():
                 row >>= 1
 
     def status_handler(self, mode, status, ip):
-        self.display.set_update_speed(2)
-        print(mode, status, ip)
-        self.display.set_pen(15)
-        self.display.clear()
-        self.display.set_pen(0)
-        if status:
-            self.display.text("Connected!", 10, 10, 300, 0.5)
-            self.display.text(ip, 10, 30, 300, 0.5)
-        else:
-            self.display.text("Connecting...", 10, 10, 300, 0.5)
-        self.update()
+        pass
+        #self.display.set_update_speed(2)
+        #print(mode, status, ip)
+        #self.display.set_pen(15)
+        #self.display.clear()
+        #self.display.set_pen(0)
+        #if status:
+        #    self.display.text("Connected!", 10, 10, 300, 0.5)
+        #    self.display.text(ip, 10, 30, 300, 0.5)
+        #else:
+        #    self.display.text("Connecting...", 10, 10, 300, 0.5)
+        #self.update()
 
     def isconnected(self):
         import network
