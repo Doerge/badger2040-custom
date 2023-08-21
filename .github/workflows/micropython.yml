@@ -61,12 +61,12 @@ jobs:
     strategy:
       matrix:
         include:
-          - name: Badger 2040
-            shortname: badger2040
-            board: PIMORONI_BADGER2040
-            # 0x10000000 + (2*1024*1024) - (1408*1024)
-            dir2uf2_fs_start: 269090816
-            dir2uf2_fs_size: 1441792
+          # - name: Badger 2040
+          #   shortname: badger2040
+          #   board: PIMORONI_BADGER2040
+          #   # 0x10000000 + (2*1024*1024) - (1408*1024)
+          #   dir2uf2_fs_start: 269090816
+          #   dir2uf2_fs_size: 1441792
           - name: Badger 2040 W
             shortname: badger2040w
             board: PIMORONI_BADGER2040W
