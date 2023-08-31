@@ -82,9 +82,11 @@ class NetworkManager:
             self._handle_status(network.STA_IF, True)
 
         except uasyncio.TimeoutError:
-            self._sta_if.active(False)
-            self._handle_status(network.STA_IF, False)
-            self._handle_error(network.STA_IF, "WIFI Client Failed")
+            # Retry
+            self.client(ssid, psk)
+            #self._sta_if.active(False)
+            #self._handle_status(network.STA_IF, False)
+            #self._handle_error(network.STA_IF, "WIFI Client Failed")
 
     async def access_point(self):
         if self._ap_if.isconnected():
