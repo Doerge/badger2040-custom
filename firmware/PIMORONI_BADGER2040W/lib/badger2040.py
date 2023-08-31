@@ -243,6 +243,12 @@ class Badger2040():
         #    self.display.text("Connecting...", 10, 10, 300, 0.5)
         #self.update()
 
+    def error_handler(self, mode, status):
+        print(mode, status)
+        self.display.set_pen(0)
+        self.display.text(status, 100, 10, 300, 0.5)
+        self.update()
+
     def isconnected(self):
         import network
         return network.WLAN(network.STA_IF).isconnected()
@@ -262,6 +268,6 @@ class Badger2040():
         if WIFI_CONFIG.COUNTRY == "":
             raise RuntimeError("You must populate WIFI_CONFIG.py for networking.")
 
-        network_manager = NetworkManager(WIFI_CONFIG.COUNTRY, status_handler=status_handler, client_timeout=120)
+        network_manager = NetworkManager(WIFI_CONFIG.COUNTRY, status_handler=status_handler, client_timeout=120, error_handler=self.error_handler)
         uasyncio.get_event_loop().run_until_complete(network_manager.client(WIFI_CONFIG.SSID, WIFI_CONFIG.PSK))
         gc.collect()
